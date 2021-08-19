@@ -16,7 +16,7 @@ function EventForm({
 }) {
   return (
     <Box borderRadius="md" w="300px" border="1px" p="5" m="5" borderColor="gray.200">
-      <Input value={label} onChange={(e) => setLabel(e.target.value)} mb="5" />
+      <Input value={label} placeholder="Label" onChange={(e) => setLabel(e.target.value)} mb="5" />
       <Select placeholder={!status && 'Status'} value={status} onChange={(e) => setStatus(e.target.value)} mb="5">
         <option value="pending">Pending</option>
         <option value="on-going">On-going</option>
