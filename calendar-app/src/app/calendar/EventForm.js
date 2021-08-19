@@ -24,7 +24,7 @@ function EventForm({
       </Select>
       <DatePicker
         selected={moment(date).toDate()}
-        onChange={(date) => setDate(moment(date).format('MMM DD YYYY'))}
+        onChange={(date) => setDate(moment(date).format('MMM DD, YYYY'))}
         dateFormat="MMM dd, yyyy"
       />
     </Box>
