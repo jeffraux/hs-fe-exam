@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   Flex,
@@ -12,10 +12,17 @@ import {
 
 import { getEvents } from '../actions/events';
 
-const EventsList = ({ events, viewEvent }) => {
+const EventsList = ({ events, viewEvent, statusFilter }) => {
+  const eventsList = events.filter(event => {
+    if (statusFilter) {
+      return event.status === statusFilter;
+    }
+    else return true;
+  });
+
   return (
     <Box borderRadius="md" border="1px" m="5" borderColor="gray.200">
-      {events.map(event => (
+      {eventsList.length ? eventsList.map(event => (
         <Center key={`${event.id}-${event.label}`} onClick={() => viewEvent(event)} w="300px" borderRadius="md" border="1px" m="5" borderColor="gray.200" cursor="pointer">
           <Box p="3" flex="1" flexDirection="column" alignItems="flex-start" textAlign="start">
             <Text>{event.label}</Text>
@@ -25,7 +32,13 @@ const EventsList = ({ events, viewEvent }) => {
             <Text>{event.date}</Text>
           </Box>
         </Center>
-      ))}
+      )) : (
+        <Center w="300px" borderRadius="md" border="1px" m="5" borderColor="gray.200">
+          <Box p="3" flex="1" flexDirection="column">
+            <Text>No result</Text>
+          </Box>
+        </Center>
+      )}
     </Box>
   );
 };
@@ -33,6 +46,7 @@ const EventsList = ({ events, viewEvent }) => {
 function Home(props) {
   const dispatch = useDispatch();
   const events = useSelector(state => state.events);
+  const [statusFilter, setStatusFilter] = useState(null);
 
   useEffect(() => {
     dispatch(getEvents());
@@ -57,13 +71,13 @@ function Home(props) {
         <Heading>Calendar App</Heading>
       </Center>
       <Box flex="1" alignSelf="flex-end" mr="5">
-        <Select placeholder="Filter">
+        <Select placeholder="Filter" onChange={(e) => setStatusFilter(e.target.value)}>
           <option value="pending">Pending</option>
           <option value="on-going">On-going</option>
           <option value="done">Done</option>
         </Select>
       </Box>
-      <EventsList events={events} viewEvent={viewEvent} />
+      <EventsList events={events} viewEvent={viewEvent} statusFilter={statusFilter} />
       <Box flex="1">
         <Button onClick={addEvent} colorScheme="blue">Add</Button>
       </Box>

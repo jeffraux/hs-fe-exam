@@ -71,7 +71,7 @@ function DetailsPage({ location, history }) {
       />
       <Box flex="1">
         <Button onClick={deleteEvent} mr="5" colorScheme="red">Delete</Button>
-        <Button onClick={updateEvent} colorScheme="blue">Update</Button>
+        <Button onClick={updateEvent} colorScheme="green">Update</Button>
       </Box>
     </Flex>
   );
