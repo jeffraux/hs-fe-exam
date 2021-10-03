@@ -8,6 +8,10 @@
   display: block;
 }
 
+.react-datepicker__triangle {
+  left: -60px !important;
+}
+
 .react-datepicker__input-container {
   font-size: 1rem;
   padding-left: 1rem;
@@ -39,7 +43,7 @@
 
 .react-datepicker__navigation--previous,
 .react-datepicker__navigation--next {
-  height: 8px;
+  height: 44px;
 }
 
 .react-datepicker__navigation--previous {

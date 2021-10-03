@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useToast } from '@chakra-ui/react';
 
+import Api from '../../services/events';
+
 import EventForm from './EventForm';
 import H1 from '../../components/Typography/Headings/H1';
 import Button from '../../components/Button';
-
-import Api from '../../services/events';
 
 
 function CreatePage({ history }) {
