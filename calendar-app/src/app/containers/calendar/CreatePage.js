@@ -1,17 +1,12 @@
 import React, { useState } from 'react';
-import {
-  Flex,
-  Center,
-  Heading,
-  Box,
-  Button,
-  useToast,
-} from '@chakra-ui/react';
-import moment from 'moment';
+import { useToast } from '@chakra-ui/react';
+
+import EventForm from './EventForm';
+import H1 from '../../components/Typography/Headings/H1';
+import Button from '../../components/Button';
 
 import Api from '../../services/events';
 
-import EventForm from './EventForm';
 
 function CreatePage({ history }) {
   const [label, setLabel] = useState('');
@@ -50,13 +45,13 @@ function CreatePage({ history }) {
   }
 
   return (
-    <Flex align="center" justify="center" direction="column">
-      <Center m="10">
-        <Heading>Create</Heading>
-      </Center>
-      <Box flex="1" alignSelf="flex-start" ml="5">
+    <div className="container flex flex-col max-w-sm">
+      <div className="container mx-auto" m="10">
+        <H1>Create</H1>
+      </div>
+      <div className="container flex self-start">
         <Button onClick={goBack}>Back</Button>
-      </Box>
+      </div>
       <EventForm
         label={label}
         status={status}
@@ -65,10 +60,10 @@ function CreatePage({ history }) {
         setStatus={setStatus}
         setDate={setDate}
       />
-      <Box flex="1">
-        <Button onClick={addEvent} colorScheme="blue">Add</Button>
-      </Box>
-    </Flex>
+      <div className="container flex justify-end">
+        <Button onClick={addEvent} color="blue">Add</Button>
+      </div>
+    </div>
   );
 }
 

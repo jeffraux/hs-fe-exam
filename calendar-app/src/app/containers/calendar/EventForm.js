@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Box,
   Select,
   Input,
 } from '@chakra-ui/react';
@@ -15,7 +14,7 @@ function EventForm({
   setLabel, setStatus, setDate,
 }) {
   return (
-    <Box borderRadius="md" w="300px" border="1px" p="5" m="5" borderColor="gray.200">
+    <div className="md:container flex flex-col py-4">
       <Input value={label} placeholder="Label" onChange={(e) => setLabel(e.target.value)} mb="5" />
       <Select placeholder={!status && 'Status'} value={status} onChange={(e) => setStatus(e.target.value)} mb="5">
         <option value="pending">Pending</option>
@@ -27,7 +26,7 @@ function EventForm({
         onChange={(date) => setDate(moment(date).format('MMM DD, YYYY'))}
         dateFormat="MMM dd, yyyy"
       />
-    </Box>
+    </div>
   );
 }
 
