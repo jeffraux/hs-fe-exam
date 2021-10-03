@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  ChakraProvider,
-  Box,
-  VStack,
-  Grid,
-  theme,
-} from '@chakra-ui/react';
+import { ChakraProvider, theme } from '@chakra-ui/react';
 
 import Routes from './routes';
 
@@ -21,7 +15,7 @@ const store = createStore(
   reducer,
   applyMiddleware(sagaMiddleware)
 );
-// const action = type => store.dispatch({type});
+
 sagaMiddleware.run(rootSaga);
 
 class App extends React.Component {
@@ -31,13 +25,9 @@ class App extends React.Component {
     return (
       <Provider store={store}>
         <ChakraProvider theme={theme}>
-          <Box textAlign="center" fontSize="xl">
-            <Grid minH="100vh" p={3}>
-              <VStack spacing={8} justify="flex-start">
-                <Routes history={history} />
-              </VStack>
-            </Grid>
-          </Box>
+          <div className="container mx-auto">
+            <Routes history={history} />
+          </div>
         </ChakraProvider>
       </Provider>
     );
