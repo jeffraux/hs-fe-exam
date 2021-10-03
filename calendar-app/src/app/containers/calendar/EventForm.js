@@ -7,7 +7,7 @@ import InputSelect from '../../components/InputSelect';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import './datepicker.css';
-import './EventForm.scss';
+import './EventForm.css';
 
 function EventForm({
   label, status, date,
@@ -21,7 +21,7 @@ function EventForm({
         placeholder="Label"
         onChange={(e) => setLabel(e.target.value)}
       />
-      <InputSelect label={'Status'} value={status} onChange={(e) => setStatus(e.target.value)}>
+      <InputSelect label={'Status'} value={status || ''} onChange={(e) => setStatus(e.target.value)}>
         <option value="pending">Pending</option>
         <option value="on-going">On-going</option>
         <option value="done">Done</option>

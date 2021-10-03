@@ -1,19 +1,19 @@
 {
   "events": [
     {
-      "id": 1,
-      "label": "test 1",
+      "label": "Test 1",
+      "status": "on-going",
       "date": "Jan 1, 2021",
-      "status": "pending"
+      "id": 1
     },
     {
-      "id": 2,
-      "label": "test 2",
+      "label": "Test 2",
+      "status": "done",
       "date": "Jan 2, 2021",
-      "status": "done"
+      "id": 2
     },
     {
-      "label": "test 3",
+      "label": "Test 3",
       "status": "pending",
       "date": "Jan 16, 2021",
       "id": 3
