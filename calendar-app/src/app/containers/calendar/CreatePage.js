@@ -9,14 +9,14 @@ import {
 } from '@chakra-ui/react';
 import moment from 'moment';
 
-import Api from '../services/events';
+import Api from '../../services/events';
 
 import EventForm from './EventForm';
 
 function CreatePage({ history }) {
   const [label, setLabel] = useState('');
-  const [status, setStatus] = useState(null);
-  const [date, setDate] = useState(moment().toDate());
+  const [status, setStatus] = useState('');
+  const [date, setDate] = useState(null);
   const toast = useToast();
 
   const goBack = () => {
@@ -24,18 +24,29 @@ function CreatePage({ history }) {
   }
 
   const addEvent = () => {
-    Api.createEvent({ label, status, date })
-      .then(() => {
-        toast({
-          title: "Event created.",
-          description: "The event has been created.",
-          status: "success",
-          duration: 5000,
-          isClosable: true,
-          position: "top-right",
+    if (label && status && date) {
+      return Api.createEvent({ label, status, date })
+        .then(() => {
+          toast({
+            title: "Event created.",
+            description: "The event has been created.",
+            status: "success",
+            duration: 5000,
+            isClosable: true,
+            position: "top-right",
+          });
+          goBack();
         });
-        goBack();
+    } else {
+      toast({
+        title: "Some fields are missing.",
+        description: "All fields are required. Please fill-up all the details.",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "top-right",
       });
+    }
   }
 
   return (

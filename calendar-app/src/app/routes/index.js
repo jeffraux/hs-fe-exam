@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import HomePage from '../calendar';
-import DetailsPage from '../calendar/DetailsPage';
-import CreatePage from '../calendar/CreatePage';
+import HomePage from '../containers/calendar';
+import DetailsPage from '../containers/calendar/DetailsPage';
+import CreatePage from '../containers/calendar/CreatePage';
 
 
 const Routes = (props) => (

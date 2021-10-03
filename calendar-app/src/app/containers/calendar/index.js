@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
 
-import { getEvents } from '../actions/events';
+import { getEvents } from '../../actions/events';
 
 const EventsList = ({ events, viewEvent, statusFilter, searchFilter }) => {
   const eventsList = events.filter(event => {

@@ -8,7 +8,7 @@ import {
   useToast,
 } from '@chakra-ui/react';
 
-import Api from '../services/events';
+import Api from '../../services/events';
 
 import EventForm from './EventForm';
 
