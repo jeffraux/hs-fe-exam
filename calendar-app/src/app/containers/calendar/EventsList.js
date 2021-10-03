@@ -12,7 +12,7 @@ const EventsList = ({ events, viewEvent, statusFilter, searchFilter }) => {
     }
 
     if (searchFilter) {
-      searchFilterCondition = `${event.label}`.includes(searchFilter);
+      searchFilterCondition = `${event.label}`.toLowerCase().includes(searchFilter.toLowerCase());
     }
 
     return statusFilterCondition && searchFilterCondition;
