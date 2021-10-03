@@ -13,7 +13,7 @@ const Button = ({ children, color, customClass, ...props }) => {
         text-sm
         font-medium
         cursor-pointer
-        ${customClass}
+        ${customClass || ''}
       `}
       {...props}
     >

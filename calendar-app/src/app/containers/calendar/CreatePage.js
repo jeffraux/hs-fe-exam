@@ -45,8 +45,8 @@ function CreatePage({ history }) {
   }
 
   return (
-    <div className="container flex flex-col max-w-sm">
-      <div className="container mx-auto" m="10">
+    <div className="container flex flex-col max-w-md">
+      <div className="container flex py-6 justify-center">
         <H1>Create</H1>
       </div>
       <div className="container flex self-start">
