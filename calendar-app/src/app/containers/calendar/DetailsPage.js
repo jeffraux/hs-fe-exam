@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
-import {
-  Flex,
-  Center,
-  Heading,
-  Box,
-  Button,
-  useToast,
-} from '@chakra-ui/react';
+import { useToast } from '@chakra-ui/react';
 
 import Api from '../../services/events';
 
 import EventForm from './EventForm';
+import H1 from '../../components/Typography/Headings/H1';
+import Button from '../../components/Button';
+
 
 function DetailsPage({ location, history }) {
   const { event } = location.state;
@@ -54,26 +50,26 @@ function DetailsPage({ location, history }) {
   }
 
   return (
-    <Flex align="center" justify="center" direction="column">
-      <Center m="10">
-        <Heading>{event.label}</Heading>
-      </Center>
-      <Box flex="1" alignSelf="flex-start" ml="5">
-        <Button onClick={goBack}>Back</Button>
-      </Box>
-      <EventForm
-        label={label}
-        status={status}
-        date={date}
-        setLabel={setLabel}
-        setStatus={setStatus}
-        setDate={setDate}
-      />
-      <Box flex="1">
-        <Button onClick={deleteEvent} mr="5" colorScheme="red">Delete</Button>
-        <Button onClick={updateEvent} colorScheme="green">Update</Button>
-      </Box>
-    </Flex>
+    <div className="container flex flex-col max-w-md">
+    <div className="container flex py-6 justify-center">
+      <H1>{event.label}</H1>
+    </div>
+    <div className="container flex self-start">
+      <Button onClick={goBack}>Back</Button>
+    </div>
+    <EventForm
+      label={label}
+      status={status}
+      date={date}
+      setLabel={setLabel}
+      setStatus={setStatus}
+      setDate={setDate}
+    />
+    <div className="container flex justify-end">
+      <Button onClick={deleteEvent} color="red">Delete</Button>
+      <Button onClick={updateEvent} customClass="ml-4" color="green">Update</Button>
+    </div>
+  </div>
   );
 }
 

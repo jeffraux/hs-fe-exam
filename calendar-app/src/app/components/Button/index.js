@@ -4,7 +4,7 @@ const Button = ({ children, color, customClass, ...props }) => {
   return (
     <span
       className={`
-        bg-${color || 'gray'}-800
+        bg-${color || 'gray'}-700
         hover:bg-${color || 'gray'}-500
         text-white
         px-3
