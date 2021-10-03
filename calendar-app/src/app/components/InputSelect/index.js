@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InputSelect = ({ name, label, value, customClass, children, ...props }) => {
+const InputSelect = ({ name, label, customClass, children, ...props }) => {
   return (
     <div
       className={`
