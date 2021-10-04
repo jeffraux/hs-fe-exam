@@ -14,7 +14,6 @@ function* fetchEvents() {
 }
 
 function* createEvent(event) {
-  console.log('createEvent saga event:', event);
   try {
     const data = yield Api.fetchEvents();
     yield put({ type: 'EVENTS_FETCH_SUCCEEDED', data: data });

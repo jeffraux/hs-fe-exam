@@ -35,7 +35,7 @@ function Home(props) {
   }
 
   return (
-    <div className="container flex flex-col max-w-md">
+    <div className="container flex flex-col max-w-md mx-auto">
       <div className="container flex py-6 justify-center">
         <H1>Calendar App</H1>
       </div>

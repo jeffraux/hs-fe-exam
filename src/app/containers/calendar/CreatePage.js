@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useToast } from '@chakra-ui/react';
 
 import Api from '../../services/events';
+import useToastContext from '../../hooks/useToastContext';
 
 import EventForm from './EventForm';
 import H1 from '../../components/Typography/Headings/H1';
@@ -12,7 +12,7 @@ function CreatePage({ history }) {
   const [label, setLabel] = useState('');
   const [status, setStatus] = useState('');
   const [date, setDate] = useState(null);
-  const toast = useToast();
+  const showToast = useToastContext();
 
   const goBack = () => {
     history.goBack();
@@ -22,30 +22,25 @@ function CreatePage({ history }) {
     if (label && status && date) {
       return Api.createEvent({ label, status, date })
         .then(() => {
-          toast({
-            title: "Event created.",
-            description: "The event has been created.",
-            status: "success",
-            duration: 5000,
-            isClosable: true,
-            position: "top-right",
+          showToast({
+            id: 'event-create',
+            color: 'blue',
+            message: 'Event created',
           });
           goBack();
         });
     } else {
-      toast({
-        title: "Some fields are missing.",
-        description: "All fields are required. Please fill-up all the details.",
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-        position: "top-right",
+      showToast({
+        id: 'event-create-invalid',
+        color: 'red',
+        message: 'Some fields are missing',
+        width: 56,
       });
     }
   }
 
   return (
-    <div className="container flex flex-col max-w-md">
+    <div className="container flex flex-col max-w-sm mx-auto">
       <div className="container flex py-6 justify-center">
         <H1>Create</H1>
       </div>

@@ -1,5 +1,4 @@
 import React, { StrictMode } from 'react';
-import { ColorModeScript } from '@chakra-ui/react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -10,7 +9,6 @@ import './index.css';
 
 ReactDOM.render(
   <StrictMode>
-    <ColorModeScript />
     <BrowserRouter>
       <App />
     </BrowserRouter>

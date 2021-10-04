@@ -7,7 +7,7 @@ const Input = ({ name, customClass, ...props }) => {
       name={name}
       id={name}
       className={`
-        max-w-sm
+        max-w-md
         py-2
         px-3
         sm:text-sm
