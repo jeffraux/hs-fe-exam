@@ -4,7 +4,7 @@ const InputSelect = ({ name, label, customClass, children, ...props }) => {
   return (
     <div
       className={`
-        max-w-sm
+        max-w-md
         border
         border-gray-300
         rounded-md

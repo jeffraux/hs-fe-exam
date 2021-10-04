@@ -1,11 +1,11 @@
 import React from 'react';
-import { ChakraProvider, theme } from '@chakra-ui/react';
-
-import Routes from './routes';
-
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
+
+import { ToastContextProvider } from './contexts/ToastContext';
+
+import Routes from './routes';
 
 import { rootSaga } from './sagas/saga';
 import reducer from './reducers';
@@ -24,11 +24,11 @@ class App extends React.Component {
 
     return (
       <Provider store={store}>
-        <ChakraProvider theme={theme}>
+        <ToastContextProvider>
           <div className="container mx-auto">
             <Routes history={history} />
           </div>
-        </ChakraProvider>
+        </ToastContextProvider>
       </Provider>
     );
   }
