@@ -7,6 +7,4 @@ Runs the mock API server using `json-server`
 
 ## How to run project
 
-Go to `calendar-app` directory and run this:
-
 ### `npm run start`
